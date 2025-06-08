@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="pomodoro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+                                               <!--HOME PAGE-->
+    <section class="home-card">
+        <header class="home-timer-logo">Your very own pomodoro timer</header>
+        <div class="main-container">
+            <h1>FocusForge</h1>
+            <span class="home-timer-text">Time is your edge. Use it wisely</span>
+        </div>
+         <button class="home-button">Get Started</button>
+    </section>
+
+                                             <!--TIMER CARD-->
+    <section class="timer-card" style="display: none;">
+        <div class="timer-functionality">
+            <div class="timer"> 
+                <span class="time">25:00</span> 
+                <span class="session-type">Focus</span>
+            </div>
+            <span class="count">Pomodoro 1 of 4 </span>
+        </div>
+        <div class="buttons">
+        <button class="sliders-settings-btn btn"><i class="fas fa-sliders"></i></button>
+        <button class="start-btn btn"><i class="fas fa-play"></i>Start</button>
+        <button class="pause-btn btn" style="display: none;"><i class="fas fa-pause"></i>Pause</button>
+        <button class="reset-btn btn"><i class="fas fa-rotate-left"></i></button>
+        </div>
+    </section>
+
+                                          <!--SETTINGS SECTION-->
+
+    <section class="settings-section" style="display: none;">
+        <div class="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="header-div">
+            <h1 class="settings-header">Settings ⚙️</h1>
+            <p class="header-text">Customize your pomodoro experience</p>
+        </div>
+
+        <div class="settings-buttons">
+                                      <!-- Duration Settings -->
+            <div class="settings-btn duration-btn">
+                <div  class='btn-title'>Duration Settings</div>
+                <div class="settings-content">
+                    <div class="duration-info">
+                        <div class="session">
+                            <div class="duration-title">Focus Session</div>
+                            <div class="time-controls">
+                                <div class="control-buttons" data-session="focus">
+                                    <i class="fas fa-minus decrement-button"></i>
+                                    <i class="fas fa-plus increment-button"></i>
+                                </div>
+                                <span class="duration-time">25</span>
+                            </div>
+                        </div>
+                        
+                        <div class="session">
+                            <div class="duration-title">Short Break</div>
+                            <div class="time-controls">
+                                <div class="control-buttons" data-session="short-break">
+                                    <i class="fas fa-minus decrement-button"></i>
+                                    <i class="fas fa-plus increment-button"></i>
+                                </div>
+                                <span class="duration-time">5</span>
+                            </div>
+                        </div>
+                        
+                        <div class="session">
+                            <div class="duration-title">Long Break</div>
+                            <div class="time-controls">
+                                <div class="control-buttons" data-session="long-break">
+                                    <i class="fas fa-minus decrement-button"></i>
+                                    <i class="fas fa-plus increment-button"></i>
+                                </div>
+                                <span class="duration-time">15</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="save">Save Duration Settings</button>
+                </div>
+            </div>
+
+                                          <!-- Notification Settings -->
+            <div class="settings-btn">
+                <div class="btn-title">Notification Settings</div>
+                <div class="settings-content">
+                    <div class="notification-options">
+                        <div class="notification-option">
+                            <span class="notification-label">
+                                <i class="fas fa-bell"></i> 
+                                Push Notifications
+                            </span>
+                            <div class="notification-toggle">
+                                <div class="toggle-switch active" data-setting="push">
+                                    <div class="toggle-slider"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="notification-option">
+                            <span class="notification-label">
+                                <i class="fas fa-volume-up"></i> 
+                                Sound
+                            </span>
+                            <div class="notification-toggle">
+                                <div class="toggle-switch active" data-setting="sound">
+                                    <div class="toggle-slider"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="notification-option">
+                            <span class="notification-label">
+                                <i class="fas fa-mobile-alt"></i> 
+                                Vibration
+                            </span>
+                            <div class="notification-toggle">
+                                <div class="toggle-switch active" data-setting="vibration">
+                                    <div class="toggle-slider"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="message-section">
+                        <input type="text" id="custom-message" placeholder="Enter your preferred message" />
+                        <select id="preset-select">
+                            <option value="">----Choose preset----</option>
+                            <option value="Great work! Now breathe">Great work! Now breathe</option>
+                            <option value="Break time, stretch a little.">Break time, stretch a little.</option>
+                            <option value="Time's up -- Take a break">Time's up -- Take a break</option>
+                            <option value="You crushed it. Relax now!">You crushed it. Relax now!</option>
+                            <option value="Session ended, Break Time">Session ended, Break Time</option>
+                        </select>
+                        <div class="button-group">
+                            <button class="save" id="save-message">Save Message</button>
+                            <button class="save alt" id="reset-message">Reset to Default</button>
+                        </div>
+                    </div>
+                </div>
+            </div >
+    </section>
+    <div id="toast-notification" class="toast">
+        <span id="toast-message"></span>
+    </div>
+    <script src="pomodoro.js"></script>
+</body>
+</html>
